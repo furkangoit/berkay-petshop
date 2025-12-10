@@ -169,6 +169,62 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80"
     ],
     description: "Köpeğinizin diş etlerine masaj yaparak diş sağlığını korumaya yardımcı olur. Kopmaya karşı ekstra dayanıklı örgü yapısı ile uzun ömürlüdür. Çekiştirme oyunları için ideal boyutta ve sağlamlıktadır. Doğal pamuk ipliğinden üretildiği için yutulması durumunda zarar vermez."
+  },
+  {
+    id: 13,
+    name: "Otomatik Mama Kabı",
+    price: 380.00,
+    category: "Kedi",
+    stock: 10,
+    image: "https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?auto=format&fit=crop&w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1545238579-9ba13b0e299a?auto=format&fit=crop&w=800&q=80"
+    ],
+    description: "Akıllı zamanlayıcı sistemi ile istediğiniz saatlerde otomatik olarak mama verir. 6 bölmeli yapısı ile günde 6 öğüne kadar programlanabilir. Hava geçirmez kapaklı bölmeleri sayesinde mama her zaman taze kalır. Ses kayıt özelliği ile kedinizi yemek zamanında kendi sesinizle çağırabilirsiniz. Elektrik kesintisinde çalışmaya devam eden pil desteği mevcuttur."
+  },
+  {
+    id: 14,
+    name: "Interaktif Köpek Topu",
+    price: 95.00,
+    category: "Köpek",
+    stock: 18,
+    image: "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1527526029430-319f10814151?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1585664811087-47f65abbad64?auto=format&fit=crop&w=800&q=80"
+    ],
+    description: "Kendi kendine hareket eden akıllı top köpeğinizi saatlerce eğlendirir. USB ile şarj edilebilir, tek şarjla 3 saat kullanım sağlar. Isırıklara dayanıklı silikon kaplama sayesinde uzun ömürlüdür. Farklı hızlarda hareket ederek köpeğinizin dikkatini canlı tutar. Temizliği kolay, suya dayanıklı yapıya sahiptir."
+  },
+  {
+    id: 15,
+    name: "Premium Kemirgen Karışım Yemi",
+    price: 42.00,
+    category: "Kemirgen",
+    stock: 28,
+    image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?auto=format&fit=crop&w=800&q=80"
+    ],
+    description: "Hamster, gine domuzu ve tavşanlar için özel olarak hazırlanmış dengeli beslenme formülü. Zengin tohum, meyve ve sebze karışımı ile günlük vitamin ihtiyacını karşılar. Diş sağlığını destekleyen sert taneler içerir. Katkısız, doğal ürünlerden oluşur. Sindirim sistemini güçlendiren prebiyotikler eklenmiştir."
+  },
+  {
+    id: 16,
+    name: "Renkli Kuş Kafesi Tüneli",
+    price: 68.00,
+    category: "Kuş",
+    stock: 22,
+    image: "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1552728089-57bdde30beb8?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7de8?auto=format&fit=crop&w=800&q=80"
+    ],
+    description: "Kafeste yaşayan kuşlar için eğlenceli ve güvenli bir oyun alanı sunar. Esnek yapısı sayesinde her türlü kafese kolayca monte edilebilir. Canlı renkleri ile kuşunuzun dikkatini çeker ve zihinsel uyarım sağlar. İçinden geçerken tırmanma ve denge egzersizi yapmalarına olanak tanır. Doğal malzemeden üretilmiş, toksik madde içermez."
   }
 ];
     
