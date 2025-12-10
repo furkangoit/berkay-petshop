@@ -53,7 +53,7 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onAddToCart, onProduc
 
   // Effect to sync viewFavorites with initialViewFavorites prop
   useEffect(() => {
-    if (initialViewFavorites && !viewFavorites) {
+    if (initialViewFavorites) {
       setViewFavorites(true);
     }
   }, [initialViewFavorites]);
