@@ -7,7 +7,7 @@ const Services: React.FC = () => {
     {
       id: 1,
       title: "Pet Kuaför",
-      description: "Profesyonel traş, banyo ve tırnak bakımı ile dostlarınız hep şık görünsün.",
+      description: "Profesyonel traş, banyo ve tırnak bakımı ile yakında dostlarınız hizmetindeyiz.",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -27,8 +27,8 @@ const Services: React.FC = () => {
     },
     {
       id: 3,
-      title: "Veteriner Danışmanlık",
-      description: "Uzmanlarımızdan beslenme ve temel sağlık konularında ücretsiz tavsiyeler.",
+      title: "Pet Aksesuarları",
+      description: "Köpek ve kedi oyuncaklarından tasma ve yataklara kadar geniş ürün yelpazemizle hizmetinizdeyiz.",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
