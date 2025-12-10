@@ -23,6 +23,9 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onAddToCart, onProduc
   // State to track which products have been recently added (for button feedback)
   const [addedIds, setAddedIds] = useState<number[]>([]);
 
+  // State for loading animation during filtering
+  const [isLoading, setIsLoading] = useState(false);
+
   // Extract unique categories for the filter menu
   const categories = ['Tümü', ...Array.from(new Set(products.map(p => p.category)))];
 
