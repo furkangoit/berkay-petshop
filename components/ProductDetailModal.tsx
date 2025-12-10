@@ -9,9 +9,11 @@ interface ProductDetailModalProps {
   onClose: () => void;
   onAddToCart: (product: Product) => void;
   onProductSelect: (product: Product) => void;
+  favorites: number[];
+  onToggleFavorite: (productId: number) => void;
 }
 
-const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, isOpen, onClose, onAddToCart, onProductSelect }) => {
+const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, isOpen, onClose, onAddToCart, onProductSelect, favorites, onToggleFavorite }) => {
   // Local state to show temporary feedback on the "Add to Cart" button
   const [isAdded, setIsAdded] = useState(false);
   // State for the currently selected image in the gallery
@@ -229,10 +231,34 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, isOpen
                   )}
                 </div>
 
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-2">
-                  {product.name}
-                </h2>
-                
+                {/* Product Title with Favorite Button */}
+                <div className="flex items-start justify-between mb-2">
+                  <h2 className="text-3xl font-extrabold text-gray-900 flex-1">
+                    {product.name}
+                  </h2>
+
+                  {/* Favorite Button */}
+                  <button
+                    onClick={() => onToggleFavorite(product.id)}
+                    className="group/fav ml-4 p-2.5 bg-gray-50 hover:bg-white rounded-full shadow-sm transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 flex-shrink-0"
+                    aria-label={favorites.includes(product.id) ? "Favorilerden çıkar" : "Favorilere ekle"}
+                  >
+                    <svg
+                      className={`w-6 h-6 transition-colors duration-300 ${favorites.includes(product.id) ? 'text-red-500 fill-current' : 'text-gray-400'}`}
+                      fill={favorites.includes(product.id) ? "currentColor" : "none"}
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    {/* Tooltip */}
+                    <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover/fav:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-sm z-30">
+                      {favorites.includes(product.id) ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+                    </span>
+                  </button>
+                </div>
+
                 <p className="text-4xl font-bold text-brand-600 mb-6">
                   {product.price.toFixed(2)} ₺
                 </p>

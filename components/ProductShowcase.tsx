@@ -8,26 +8,20 @@ interface ProductShowcaseProps {
   onProductClick: (product: Product) => void;
   searchQuery: string;
   onResetSearch?: () => void;
+  favorites: number[];
+  onToggleFavorite: (productId: number) => void;
+  initialViewFavorites?: boolean;
 }
 
-const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onAddToCart, onProductClick, searchQuery, onResetSearch }) => {
+const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onAddToCart, onProductClick, searchQuery, onResetSearch, favorites, onToggleFavorite, initialViewFavorites = false }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Tümü');
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all');
-  
+
   // State to toggle between "All Products" view and "Favorites" view
-  const [viewFavorites, setViewFavorites] = useState(false);
-  
+  const [viewFavorites, setViewFavorites] = useState(initialViewFavorites);
+
   // State to track which products have been recently added (for button feedback)
   const [addedIds, setAddedIds] = useState<number[]>([]);
-
-  // State for loading animation during filtering
-  const [isLoading, setIsLoading] = useState(false);
-
-  // State for favorite products (persisted in localStorage)
-  const [favorites, setFavorites] = useState<number[]>(() => {
-    const saved = localStorage.getItem('favorites');
-    return saved ? JSON.parse(saved) : [];
-  });
 
   // Extract unique categories for the filter menu
   const categories = ['Tümü', ...Array.from(new Set(products.map(p => p.category)))];
@@ -57,6 +51,13 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onAddToCart, onProduc
     }
   };
 
+  // Effect to sync viewFavorites with initialViewFavorites prop
+  useEffect(() => {
+    if (initialViewFavorites && !viewFavorites) {
+      setViewFavorites(true);
+    }
+  }, [initialViewFavorites]);
+
   // Effect to simulate loading delay when filters change
   useEffect(() => {
     setIsLoading(true);
@@ -69,16 +70,7 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onAddToCart, onProduc
   // Handle toggling favorite status
   const toggleFavorite = (e: React.MouseEvent, productId: number) => {
     e.stopPropagation(); // Prevent opening product detail modal
-    
-    let newFavorites;
-    if (favorites.includes(productId)) {
-      newFavorites = favorites.filter(id => id !== productId);
-    } else {
-      newFavorites = [...favorites, productId];
-    }
-    
-    setFavorites(newFavorites);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    onToggleFavorite(productId);
   };
 
   // Switch to category view (disables favorites view)

@@ -6,9 +6,11 @@ interface HeaderProps {
   onOpenCart: () => void;
   onSearch: (query: string) => void;
   searchQuery?: string; // Added to allow parent to control/reset input
+  favoritesCount?: number;
+  onViewFavorites?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart, onSearch, searchQuery = '' }) => {
+const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart, onSearch, searchQuery = '', favoritesCount = 0, onViewFavorites }) => {
   // State for mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // State for the cart icon animation (bump effect)
@@ -148,12 +150,30 @@ const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart, onSearch, search
               </div>
             </div>
 
-            <div className="flex items-center ml-4">
+            <div className="flex items-center ml-4 space-x-1">
+              {/* Favorites Icon & Badge */}
+              {onViewFavorites && (
+                <button
+                  onClick={onViewFavorites}
+                  className="relative p-2 text-gray-600 hover:text-red-500 transition-all cursor-pointer focus:outline-none group"
+                  aria-label="Favorileri Görüntüle"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  {favoritesCount > 0 && (
+                    <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-red-500 rounded-full">
+                      {favoritesCount}
+                    </span>
+                  )}
+                </button>
+              )}
+
               {/* Shopping Cart Icon & Badge */}
-              <button 
+              <button
                 id="cart-icon" /* Used as target for flying image animation */
                 onClick={onOpenCart}
-                className={`relative p-2 text-gray-600 hover:text-brand-600 transition-transform cursor-pointer mr-2 md:mr-0 focus:outline-none ${
+                className={`relative p-2 text-gray-600 hover:text-brand-600 transition-transform cursor-pointer focus:outline-none ${
                   isCartBumping ? 'scale-125' : '' /* Tailwind scale utility for bounce effect */
                 }`}
                 aria-label="Sepeti Görüntüle"
